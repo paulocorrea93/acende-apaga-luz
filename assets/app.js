@@ -1,4 +1,4 @@
-const ligar = document.getElementById('ligada');
+const ligaDesliga = document.getElementById('ligaDesliga');
 const desligar = document.getElementById('desligada');
 const lampada = document.getElementById('lampada');
 
@@ -22,8 +22,18 @@ function quebrarLampada(){
     lampada.src = './assets/imagens/quebrada.jpg';
 }
 
-ligar.addEventListener('click', ligarLampada);
-desligar.addEventListener('click', desligarLampada);
+function ligarDesligar(){
+    if(ligaDesliga.textContent == 'Ligar'){
+        ligarLampada();
+        ligaDesliga.textContent = 'Desligar';
+    } else {
+        desligarLampada();
+        ligaDesliga.textContent = 'Ligar';
+    }
+}
+
+ligaDesliga.addEventListener('click', ligarDesligar);
+// ligaDesliga.addEventListener('click', desligarLampada);
 lampada.addEventListener('mouseover', ligarLampada);
 lampada.addEventListener('mouseleave', desligarLampada);
 lampada.addEventListener('dblclick', quebrarLampada);
